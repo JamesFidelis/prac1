@@ -12,9 +12,10 @@ public class Page1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page1);
         //TODO: HERE NIMERECEIVE THE DATA
-        String one = getIntent().getStringExtra("firstval");
-        String two =getIntent().getStringExtra("secondval");
-        String ans = String.valueOf(getIntent().getIntExtra("resultval",0));
+        Bundle myData = getIntent().getExtras();
+        String one = myData.getString("firstval");
+        String two =myData.getString("secondval");
+        int ans = myData.getInt("resultval");
         final TextView first =(TextView) findViewById(R.id.first_number);
         final TextView second =(TextView) findViewById(R.id.second_number);
         final TextView result_val =(TextView) findViewById(R.id.result_value);

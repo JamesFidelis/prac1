@@ -3,6 +3,7 @@ package com.example.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -57,4 +58,17 @@ public class MainActivity extends AppCompatActivity {
     int Addition(int n1,int n2){
         return n1+n2;
     }
+
+    void sendSMS(){
+        Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
+        smsIntent.setData(Uri.parse("smsto:0718321566"));
+        smsIntent.putExtra("sms_body", "This is the message that will be sent");
+        startActivity(smsIntent);
+    }
+    void callPhone(){
+        Intent smsIntent = new Intent(Intent.ACTION_DIAL);
+        smsIntent.setData(Uri.parse("tel:0718321566"));
+        startActivity(smsIntent);
+    }
+
 }

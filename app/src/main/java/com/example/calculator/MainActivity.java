@@ -33,12 +33,13 @@ public class MainActivity extends AppCompatActivity {
            public void onClick(View v) {
                int results = Addition(Integer.parseInt(number1.getText().toString()), Integer.parseInt(number2.getText().toString()));
                Intent nextPage = new Intent(MainActivity.this,Page1.class);
-//               Intent nextPage = new Intent();
                //TODO: Concept ya put extra ndo hii ambayo ukingalia Page1.java utaona nimezipokea izo data
                nextPage.putExtra("firstval",number1.getText().toString());
                nextPage.putExtra("secondval",number2.getText().toString());
-               nextPage.putExtra("resultval",results);
+               nextPage.put("resultval",String.valueOf(results));
                startActivity(nextPage);
+
+
 //               nextPage.setAction("android.CUSTOM_INTENT");
 //               sendBroadcast(nextPage);
 //               MyReceiver receiver = new MyReceiver();
@@ -101,5 +102,7 @@ public class MainActivity extends AppCompatActivity {
         smsIntent.setData(Uri.parse("tel:0718321566"));
         startActivity(smsIntent);
     }
+
+
 
 }

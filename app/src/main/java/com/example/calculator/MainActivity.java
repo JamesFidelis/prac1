@@ -23,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
        final EditText number2= findViewById(R.id.number_two);
        final TextView result = findViewById(R.id.result);
        final Button add = findViewById(R.id.addition);
+       final Button start = findViewById(R.id.startService);
+       final Button stop = findViewById(R.id.stopService);
 
+
+        //TODO: THIS WILL CARRY OU THE CALCULATIONS AND DISPLAY THE RESULTS ON THE NEXT PAGE
        add.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -52,19 +56,46 @@ public class MainActivity extends AppCompatActivity {
        });
 
 
+       //TODO: THIS WILL BE USED TO START THE SERVICE
+       start.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent services = new Intent(getBaseContext(), MyService.class);
+
+               startService(services);
+           }
+       });
+
+       //TODO: THIS WILL BE USED TO STOP THE SERVICE
+       stop.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent services = new Intent(getBaseContext(), MyService.class);
+
+               stopService(services);
+           }
+       });
+
+
 
     }
+
+
 
     int Addition(int n1,int n2){
         return n1+n2;
     }
 
+
+    //TODO: THIS IS THE CODE USED TO SEND AN SMS
     void sendSMS(){
         Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
         smsIntent.setData(Uri.parse("smsto:0718321566"));
         smsIntent.putExtra("sms_body", "This is the message that will be sent");
         startActivity(smsIntent);
     }
+
+    //TODO: THIS IS THE CODE USED TO MAKE A CALL
     void callPhone(){
         Intent smsIntent = new Intent(Intent.ACTION_DIAL);
         smsIntent.setData(Uri.parse("tel:0718321566"));

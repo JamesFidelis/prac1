@@ -21,14 +21,11 @@
                 <action android:name="android.CUSTOM_INTENT"/>
             </intent-filter>
         </receiver>
-
+<!--TODO: WE DECLARE THE SERVIC HERE IN OUR MANIFEST FILE INSIDE THE APPLICATION TAG-->
         <service
             android:name=".MyService"
             android:enabled="true"
             android:exported="true" />
-        <service
-            android:name=".MyIntentService"
-            android:exported="false" />
 
         <activity
             android:name=".Page1"

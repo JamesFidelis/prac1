@@ -99,5 +99,25 @@
             android:text="Stop Services"
             android:id="@+id/stopService" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:background="@color/teal_200"
+            android:layout_height="wrap_content"
+            android:id="@+id/startBroadcast"
+            android:text="Start Broadcast"
+            android:layout_marginEnd="50dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_200"
+            android:text="Stop Broadcast"
+            android:id="@+id/stopBroadcast" />
+    </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

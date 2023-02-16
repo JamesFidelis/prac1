@@ -1,8 +1,10 @@
 package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
        final TextView result = findViewById(R.id.result);
        final Button add = findViewById(R.id.addition);
        final Button start = findViewById(R.id.startService);
+       final Button startBroadcasts = findViewById(R.id.startBroadcast);
+       final Button stopBroadcasts = findViewById(R.id.stopBroadcast);
        final Button stop = findViewById(R.id.stopService);
 
 
@@ -32,18 +36,18 @@ public class MainActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                int results = Addition(Integer.parseInt(number1.getText().toString()), Integer.parseInt(number2.getText().toString()));
+
                Intent nextPage = new Intent(MainActivity.this,Page1.class);
                //TODO: Concept ya put extra ndo hii ambayo ukingalia Page1.java utaona nimezipokea izo data
                nextPage.putExtra("firstval",number1.getText().toString());
                nextPage.putExtra("secondval",number2.getText().toString());
-               nextPage.put("resultval",String.valueOf(results));
+               nextPage.putExtra("resultval",String.valueOf(results));
                startActivity(nextPage);
 
 
 //               nextPage.setAction("android.CUSTOM_INTENT");
 //               sendBroadcast(nextPage);
-//               MyReceiver receiver = new MyReceiver();
-//               receiver.onReceive(MainActivity.this,nextPage);
+
 
 //               if(TextUtils.isEmpty(number1.getText().toString())||TextUtils.isEmpty(number2.getText().toString())){
 //                   Toast.makeText(MainActivity.this, "A number must be entered", Toast.LENGTH_SHORT).show();
@@ -74,6 +78,46 @@ public class MainActivity extends AppCompatActivity {
                Intent services = new Intent(getBaseContext(), MyService.class);
 
                stopService(services);
+           }
+       });
+
+
+
+       //TODO: THIS IS USED TO START A BROADCAST
+       startBroadcasts.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+//               Intent broadcastReceiverintent = new Intent();
+               MyReceiver receiver = new MyReceiver();
+////               IntentFilter filter = new IntentFilter("android.CUSTOM_INTENT");
+//               IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+//               registerReceiver(receiver, filter);
+////               receiver.onReceive(MainActivity.this,MyReceiver.class);
+//               broadcastReceiverintent.setAction("android.CUSTOM_INTENT");
+//               sendBroadcast(broadcastReceiverintent);
+
+
+
+               IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+               registerReceiver(receiver, filter);
+           }
+       });
+
+
+       //TODO: THIS IS USED TO STOP A BROADCAST
+       stopBroadcasts.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+//               Intent broadcastReceiverintent = new Intent();
+               MyReceiver receiver = new MyReceiver();
+////               IntentFilter filter = new IntentFilter("android.CUSTOM_INTENT");
+//               IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+//               registerReceiver(receiver, filter);
+////               receiver.onReceive(MainActivity.this,MyReceiver.class);
+//               broadcastReceiverintent.setAction("android.CUSTOM_INTENT");
+//               sendBroadcast(broadcastReceiverintent);
+
+               unregisterReceiver(receiver);
            }
        });
 

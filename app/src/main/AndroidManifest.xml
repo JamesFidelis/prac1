@@ -12,14 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Calculator"
         tools:targetApi="31">
+
+
+<!--  TODO: BELOW SHOWS A WAY TO DECLARE A BROADCAST RECEIVER      -->
         <receiver
             android:name=".MyReceiver"
             android:enabled="true"
             android:exported="true"
             >
-            <intent-filter>
-                <action android:name="android.CUSTOM_INTENT"/>
-            </intent-filter>
+<!--            <intent-filter>-->
+<!--                <action android:name="android.CUSTOM_INTENT"/>-->
+<!--            </intent-filter>-->
         </receiver>
 <!--TODO: WE DECLARE THE SERVIC HERE IN OUR MANIFEST FILE INSIDE THE APPLICATION TAG-->
         <service

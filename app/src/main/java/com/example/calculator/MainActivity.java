@@ -1,18 +1,14 @@
 package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,10 +41,6 @@ public class MainActivity extends AppCompatActivity {
                startActivity(nextPage);
 
 
-//               nextPage.setAction("android.CUSTOM_INTENT");
-//               sendBroadcast(nextPage);
-
-
 //               if(TextUtils.isEmpty(number1.getText().toString())||TextUtils.isEmpty(number2.getText().toString())){
 //                   Toast.makeText(MainActivity.this, "A number must be entered", Toast.LENGTH_SHORT).show();
 //               }else {
@@ -66,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                Intent services = new Intent(getBaseContext(), MyService.class);
-
                startService(services);
            }
        });
@@ -88,16 +79,14 @@ public class MainActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
 //               Intent broadcastReceiverintent = new Intent();
-               MyReceiver receiver = new MyReceiver();
+
 ////               IntentFilter filter = new IntentFilter("android.CUSTOM_INTENT");
 //               IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
 //               registerReceiver(receiver, filter);
 ////               receiver.onReceive(MainActivity.this,MyReceiver.class);
 //               broadcastReceiverintent.setAction("android.CUSTOM_INTENT");
 //               sendBroadcast(broadcastReceiverintent);
-
-
-
+               MyReceiver receiver = new MyReceiver();
                IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
                registerReceiver(receiver, filter);
            }
@@ -109,14 +98,14 @@ public class MainActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
 //               Intent broadcastReceiverintent = new Intent();
-               MyReceiver receiver = new MyReceiver();
+
 ////               IntentFilter filter = new IntentFilter("android.CUSTOM_INTENT");
 //               IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
 //               registerReceiver(receiver, filter);
 ////               receiver.onReceive(MainActivity.this,MyReceiver.class);
 //               broadcastReceiverintent.setAction("android.CUSTOM_INTENT");
 //               sendBroadcast(broadcastReceiverintent);
-
+               MyReceiver receiver = new MyReceiver();
                unregisterReceiver(receiver);
            }
        });

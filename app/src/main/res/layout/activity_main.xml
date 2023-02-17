@@ -84,6 +84,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
+        android:gravity="center"
         >
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="wrap_content"
@@ -104,6 +105,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
+        android:gravity="center"
         >
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="wrap_content"
